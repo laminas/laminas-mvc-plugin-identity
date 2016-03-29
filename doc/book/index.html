@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>zend-mvc-plugin-identity</h1>
+    
+    <p>Plugin for retrieving the current authenticated identity within zend-mvc controllers.</p>
+
+    <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-identity</code></pre>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 class="panel-title">Installation</h2>
+        </div>
+
+        <div class="panel-body">
+          <p>
+            Install via composer:
+          </p>
+
+          <pre><code class="lang-bash" data-trim>
+$ composer require zendframework/zend-mvc-plugin-identity
+          </code></pre>
+
+          <p>
+            If you are using the <a href="https://zendframework.github.io/zend-component-installer">zend-component-installer</a>,
+            you're done!
+          </p>
+
+          <p>
+            If not, you will need to add the component as a module to your
+            application. Add the entry <code>'Zend\Mvc\Plugin\Identity'</code> to
+            your list of modules in your application configuration (typically
+            one of <code>config/application.config.php</code> or
+            <code>config/modules.config.php</code>).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <h2>Usage</h2>
+
+      <p>
+        The <code>Identity</code> plugin allows retrieving the identity from the
+        <code>AuthenticationService</code>.
+      </p>
+
+      <p>
+        For the <code>Identity</code> plugin to work, a
+        <code>Zend\Authentication\AuthenticationService</code> name or alias
+        must be defined and recognized by the <code>ServiceManager</code>.
+      </p>
+
+      <p>
+        <code>Identity</code> returns the identity in the
+        <code>AuthenticationService</code> or <code>null</code> if no identity
+        is available.
+      </p>
+
+      <p>
+        As an example:
+      </p>
+
+      <pre><code class="lang-php" data-trim>
+public function testAction()
+{
+    if ($user = $this->identity()) {
+         // someone is logged !
+    } else {
+         // not logged in
+    }
+}
+      </code></pre>
+
+      <p>
+        When invoked, the <code>Identity</code> plugin will look for a service
+        by the name or alias
+        <code>Zend\Authentication\AuthenticationService</code> in the
+        <code>ServiceManager</code>. You can provide this service to the
+        <code>ServiceManager</code> in a configuration file:
+      </p>
+
+      <pre><code class="lang-php" data-trim>
+// In a configuration file...
+use Zend\Authentication\AuthenticationService;
+
+return [
+    'service_manager' => [
+        'aliases' => [
+            AuthenticationService::class => 'my_auth_service',
+        ],
+        'invokables' => [
+            'my_auth_service' => AuthenticationService::class,
+        ],
+    ],
+];
+      </code></pre>
+
+      <p>
+        The <code>Identity</code> plugin exposes two methods:
+      </p>
+
+      <ul>
+        <li>
+          <code>setAuthenticationService(AuthenticationService $authenticationService) : void</code>:
+          Sets the authentication service instance to be used by the plugin.
+        </li>
+
+        <li>
+          <code>getAuthenticationService() : AuthenticationService</code>:
+          Retrieves the current authentication service instance if any is
+          attached.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
