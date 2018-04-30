@@ -1,19 +1,33 @@
 {
     "name": "zendframework/zend-mvc-plugin-identity",
-    "description": " ",
+    "description": "Plugin for retrieving the current authenticated identity within zend-mvc controllers",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "zf",
+        "zendframework",
         "mvc"
     ],
-    "homepage": "https://github.com/zendframework/zend-mvc-plugin-identity",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
-        "zf": {
-            "component": "Zend\\Mvc\\Plugin\\Identity"
-        }
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-mvc-plugin-identity/",
+        "issues": "https://github.com/zendframework/zend-mvc-plugin-identity/issues",
+        "source": "https://github.com/zendframework/zend-mvc-plugin-identity",
+        "rss": "https://github.com/zendframework/zend-mvc-plugin-identity/releases.atom",
+        "chat": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/components"
+    },
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "container-interop/container-interop": "^1.1",
+        "zendframework/zend-authentication": "^2.5.3",
+        "zendframework/zend-mvc": "^3.0",
+        "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.4",
+        "zendframework/zend-coding-standard": "~1.0.0"
+    },
+    "conflict": {
+        "zendframework/zend-mvc": "<3.0.0"
     },
     "autoload": {
         "psr-4": {
@@ -25,29 +39,26 @@
             "ZendTest\\Mvc\\Plugin\\Identity\\": "test/"
         }
     },
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "container-interop/container-interop": "^1.1",
-        "zendframework/zend-mvc": "^3.0",
-        "zendframework/zend-authentication": "^2.5.3",
-        "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3"
+    "config": {
+        "sort-packages": true
     },
-    "require-dev": {
-        "phpunit/PHPUnit": "^4.5",
-        "squizlabs/php_codesniffer": "^2.3.1"
-    },
-    "conflict": {
-        "zendframework/zend-mvc": "< 3.0.0"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev",
+            "dev-develop": "1.2.x-dev"
+        },
+        "zf": {
+            "component": "Zend\\Mvc\\Plugin\\Identity"
+        }
     },
     "scripts": {
         "check": [
             "@cs-check",
             "@test"
         ],
-        "upload-coverage": "coveralls",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "test": "phpunit",
-        "test-coverage": "phpunit --coverage-clover clover.xml"
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     }
 }

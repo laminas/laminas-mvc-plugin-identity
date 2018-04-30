@@ -2,11 +2,11 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.1.0 - TBD
+## 1.1.0 - 2018-04-30
 
 ### Added
 
-- Nothing.
+- [#11](https://github.com/zendframework/zend-mvc-plugin-identity/pull/11) adds support for PHP 7.1 and 7.2.
 
 ### Changed
 
@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#11](https://github.com/zendframework/zend-mvc-plugin-identity/pull/11) removes support for HHVM.
 
 ### Fixed
 
