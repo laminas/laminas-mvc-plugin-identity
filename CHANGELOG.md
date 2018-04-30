@@ -8,23 +8,11 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-### Deprecated
+### Changed
 
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 1.0.1 - TBD
-
-### Added
-
-- Nothing.
+- [#9](https://github.com/zendframework/zend-mvc-plugin-identity/pull/9) modifies the `IdentityFactory` such that it will attempt to lookup the
+  `Zend\Authentication\AuthenticationServiceInterface` service if no `Zend\Authentication\AuthenticationService`
+  service is present in the container, and use it to seed the `Identity` plugin if found.
 
 ### Deprecated
 
