@@ -8,7 +8,7 @@
 namespace ZendTest\Mvc\Plugin\Identity;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Authentication\AuthenticationService;
 use Zend\Authentication\AuthenticationServiceInterface;
 use Zend\Mvc\Plugin\Identity\Identity;

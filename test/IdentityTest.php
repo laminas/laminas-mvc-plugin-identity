@@ -7,7 +7,7 @@
 
 namespace ZendTest\Mvc\Plugin\Identity;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Authentication\AuthenticationService;
 use Zend\Authentication\Storage\NonPersistent as NonPersistentStorage;
 use Zend\Mvc\Plugin\Identity\Identity as IdentityPlugin;
