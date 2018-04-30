@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron">
     <h1>zend-mvc-plugin-identity</h1>
-    
+
     <p>Plugin for retrieving the current authenticated identity within zend-mvc controllers.</p>
 
     <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-identity</code></pre>
@@ -26,7 +26,7 @@ $ composer require zendframework/zend-mvc-plugin-identity
           </code></pre>
 
           <p>
-            If you are using the <a href="https://zendframework.github.io/zend-component-installer">zend-component-installer</a>,
+            If you are using the <a href="https://docs.zendframework.com/zend-component-installer">zend-component-installer</a>,
             you're done!
           </p>
 
@@ -51,8 +51,9 @@ $ composer require zendframework/zend-mvc-plugin-identity
 
       <p>
         For the <code>Identity</code> plugin to work, a
-        <code>Zend\Authentication\AuthenticationService</code> name or alias
-        must be defined and recognized by the <code>ServiceManager</code>.
+        <code>Zend\Authentication\AuthenticationService</code> or
+        <code>Zend\Authentication\AuthenticationServiceInterface</code> name or
+        alias must be defined and recognized by the <code>ServiceManager</code>.
       </p>
 
       <p>
@@ -101,17 +102,35 @@ return [
       </code></pre>
 
       <p>
+        If such service is not found, the plugin will look for a&nbsp;service
+        named <code>Zend\Authentication\AuthenticationServiceInterface</code> in
+        the <code>ServiceManager</code>. For example:
+      </p>
+
+      <pre><code class="lang-php" data-trim>
+use Zend\Authentication\AuthenticationServiceInterface;
+
+return [
+    'service_manager' => [
+        'factories' => [
+            AuthenticationServiceInterface::class => MyAuthenticationServiceFactory::class
+        ]
+    ]
+];
+      </code></pre>
+
+      <p>
         The <code>Identity</code> plugin exposes two methods:
       </p>
 
       <ul>
         <li>
-          <code>setAuthenticationService(AuthenticationService $authenticationService) : void</code>:
+          <code>setAuthenticationService(AuthenticationServiceInterface $authenticationService) : void</code>:
           Sets the authentication service instance to be used by the plugin.
         </li>
 
         <li>
-          <code>getAuthenticationService() : AuthenticationService</code>:
+          <code>getAuthenticationService() : AuthenticationServiceInterface</code>:
           Retrieves the current authentication service instance if any is
           attached.
         </li>

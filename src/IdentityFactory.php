@@ -9,6 +9,7 @@ namespace Zend\Mvc\Plugin\Identity;
 
 use Interop\Container\ContainerInterface;
 use Zend\Authentication\AuthenticationService;
+use Zend\Authentication\AuthenticationServiceInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -21,11 +22,15 @@ class IdentityFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $name, array $options = null)
     {
-        $helper = new Identity();
+        $plugin = new Identity();
+
         if ($container->has(AuthenticationService::class)) {
-            $helper->setAuthenticationService($container->get(AuthenticationService::class));
+            $plugin->setAuthenticationService($container->get(AuthenticationService::class));
+        } elseif ($container->has(AuthenticationServiceInterface::class)) {
+            $plugin->setAuthenticationService($container->get(AuthenticationServiceInterface::class));
         }
-        return $helper;
+
+        return $plugin;
     }
 
     /**

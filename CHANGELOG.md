@@ -2,11 +2,17 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.0.1 - TBD
+## 1.1.0 - 2018-04-30
 
 ### Added
 
-- Nothing.
+- [#11](https://github.com/zendframework/zend-mvc-plugin-identity/pull/11) adds support for PHP 7.1 and 7.2.
+
+### Changed
+
+- [#9](https://github.com/zendframework/zend-mvc-plugin-identity/pull/9) modifies the `IdentityFactory` such that it will attempt to lookup the
+  `Zend\Authentication\AuthenticationServiceInterface` service if no `Zend\Authentication\AuthenticationService`
+  service is present in the container, and use it to seed the `Identity` plugin if found.
 
 ### Deprecated
 
@@ -14,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#11](https://github.com/zendframework/zend-mvc-plugin-identity/pull/11) removes support for HHVM.
 
 ### Fixed
 
