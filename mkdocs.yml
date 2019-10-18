@@ -1,8 +1,7 @@
 docs_dir: docs/book
 site_dir: docs/html
-pages:
-    - index.md
+nav:
+    - Home: index.md
 site_name: zend-mvc-plugin-identity
-site_description: 'zend-mvc-plugin-identity: Retrieve the current authenticated identity within a zend-mvc controller'
+site_description: 'Plugin for retrieving the current authenticated identity within zend-mvc controllers'
 repo_url: 'https://github.com/zendframework/zend-mvc-plugin-identity'
-copyright: 'Copyright (c) 2005-2018 <a href="https://www.zend.com/">Zend Technologies USA Inc.</a>'
