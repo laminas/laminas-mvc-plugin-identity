@@ -16,7 +16,7 @@ Run the following to install this library:
 $ composer require zendframework/zend-mvc-plugin-identity
 ```
 
-If you are using the [zend-component-installer](https://docs.zendframework.com/zend-component-installer),
+If you are using the [zend-component-installer](https://docs.zendframework.com/zend-component-installer/),
 you're done!
 
 If not, you will need to add the component as a module to your
