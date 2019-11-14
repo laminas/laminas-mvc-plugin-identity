@@ -5,3 +5,5 @@ nav:
 site_name: zend-mvc-plugin-identity
 site_description: 'Plugin for retrieving the current authenticated identity within zend-mvc controllers'
 repo_url: 'https://github.com/zendframework/zend-mvc-plugin-identity'
+extra:
+    show_special_homepage: true
