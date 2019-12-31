@@ -1,14 +1,15 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-plugin-identity for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\Plugin\Identity;
+namespace Laminas\Mvc\Plugin\Identity;
 
-use Zend\Authentication\AuthenticationServiceInterface;
-use Zend\Mvc\Controller\Plugin\AbstractPlugin;
+use Laminas\Authentication\AuthenticationServiceInterface;
+use Laminas\Mvc\Controller\Plugin\AbstractPlugin;
 
 /**
  * Controller plugin to fetch the authenticated identity.
