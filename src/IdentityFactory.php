@@ -1,16 +1,17 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-plugin-identity for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\Plugin\Identity;
+namespace Laminas\Mvc\Plugin\Identity;
 
 use Interop\Container\ContainerInterface;
-use Zend\Authentication\AuthenticationService;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\Authentication\AuthenticationService;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class IdentityFactory implements FactoryInterface
 {
@@ -31,7 +32,7 @@ class IdentityFactory implements FactoryInterface
     /**
      * Create and return Identity instance
      *
-     * For use with zend-servicemanager v2; proxies to __invoke().
+     * For use with laminas-servicemanager v2; proxies to __invoke().
      *
      * @param ServiceLocatorInterface $container
      * @return Identity

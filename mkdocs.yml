@@ -1,8 +1,7 @@
 docs_dir: doc/book
 site_dir: doc/html
-pages:
+nav:
     - index.md
-site_name: zend-mvc-plugin-identity
-site_description: 'zend-mvc-plugin-identity: Retrieve the current authenticated identity within a zend-mvc controller'
-repo_url: 'https://github.com/zendframework/zend-mvc-plugin-identity'
-copyright: 'Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a>'
+site_name: laminas-mvc-plugin-identity
+site_description: 'laminas-mvc-plugin-identity: Retrieve the current authenticated identity within a laminas-mvc controller'
+repo_url: 'https://github.com/laminas/laminas-mvc-plugin-identity'
