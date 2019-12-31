@@ -3,14 +3,14 @@
 Install via composer:
 
 ```bash
-$ composer require zendframework/zend-mvc-plugin-identity
+$ composer require laminas/laminas-mvc-plugin-identity
 ```
 
-If you are using the [zend-component-installer](https://docs.zendframework.com/zend-component-installer/),
+If you are using the [laminas-component-installer](https://docs.laminas.dev/laminas-component-installer/),
 you're done!
 
 If not, you will need to add the component as a module to your
-application. Add the entry `'Zend\Mvc\Plugin\Identity'` to
+application. Add the entry `'Laminas\Mvc\Plugin\Identity'` to
 your list of modules in your application configuration (typically
 one of `config/application.config.php` or `config/modules.config.php`).
 
@@ -20,8 +20,8 @@ The `Identity` plugin allows retrieving the identity from the
 `AuthenticationService`.
 
 For the `Identity` plugin to work, a
-`Zend\Authentication\AuthenticationService` or
-`Zend\Authentication\AuthenticationServiceInterface` name or
+`Laminas\Authentication\AuthenticationService` or
+`Laminas\Authentication\AuthenticationServiceInterface` name or
 alias must be defined and recognized by the `ServiceManager`.
 
 `Identity` returns the identity in the `AuthenticationService`
@@ -41,13 +41,13 @@ public function testAction()
 ```
 
 When invoked, the `Identity` plugin will look for a service
-by the name or alias `Zend\Authentication\AuthenticationService` 
+by the name or alias `Laminas\Authentication\AuthenticationService` 
 in the `ServiceManager`. You can provide this service to the
 `ServiceManager` in a configuration file:
 
 ```php
 // In a configuration file...
-use Zend\Authentication\AuthenticationService;
+use Laminas\Authentication\AuthenticationService;
 
 return [
     'service_manager' => [
@@ -62,11 +62,11 @@ return [
 ```
 
 If such service is not found, the plugin will look for a&nbsp;service
-named `Zend\Authentication\AuthenticationServiceInterface` in
+named `Laminas\Authentication\AuthenticationServiceInterface` in
 the `ServiceManager`. For example:
 
 ```php
-use Zend\Authentication\AuthenticationServiceInterface;
+use Laminas\Authentication\AuthenticationServiceInterface;
 
 return [
     'service_manager' => [

@@ -1,11 +1,12 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-plugin-identity for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\Plugin\Identity;
+namespace Laminas\Mvc\Plugin\Identity;
 
 class Module
 {
@@ -23,7 +24,11 @@ class Module
                 'aliases' => [
                     'identity' => Identity::class,
                     'Identity' => Identity::class,
-                    'Zend\Mvc\Controller\Plugin\Identity' => Identity::class,
+                    'Laminas\Mvc\Controller\Plugin\Identity' => Identity::class,
+
+                    // Legacy Zend Framework aliases
+                    'Zend\Mvc\Controller\Plugin\Identity' => 'Laminas\Mvc\Controller\Plugin\Identity',
+                    \Zend\Mvc\Plugin\Identity\Identity::class => Identity::class,
                 ],
                 'factories' => [
                     Identity::class => IdentityFactory::class,
