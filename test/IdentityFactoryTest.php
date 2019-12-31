@@ -1,18 +1,19 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc-plugin-identity for the canonical source repository
- * @copyright Copyright (c) 2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Mvc\Plugin\Identity;
+namespace LaminasTest\Mvc\Plugin\Identity;
 
 use Interop\Container\ContainerInterface;
+use Laminas\Authentication\AuthenticationService;
+use Laminas\Authentication\AuthenticationServiceInterface;
+use Laminas\Mvc\Plugin\Identity\Identity;
+use Laminas\Mvc\Plugin\Identity\IdentityFactory;
 use PHPUnit\Framework\TestCase;
-use Zend\Authentication\AuthenticationService;
-use Zend\Authentication\AuthenticationServiceInterface;
-use Zend\Mvc\Plugin\Identity\Identity;
-use Zend\Mvc\Plugin\Identity\IdentityFactory;
 
 class IdentityFactoryTest extends TestCase
 {
@@ -20,9 +21,14 @@ class IdentityFactoryTest extends TestCase
     {
         $container = $this->prophesize(ContainerInterface::class);
         $container->has(AuthenticationService::class)->willReturn(false);
+
+        $container->has(\Zend\Authentication\AuthenticationService::class)->willReturn(false);
         $container->get(AuthenticationService::class)->shouldNotBeCalled();
+        $container->get(\Zend\Authentication\AuthenticationService::class)->shouldNotBeCalled();
         $container->has(AuthenticationServiceInterface::class)->willReturn(false);
+        $container->has(\Zend\Authentication\AuthenticationServiceInterface::class)->willReturn(false);
         $container->get(AuthenticationServiceInterface::class)->shouldNotBeCalled();
+        $container->get(\Zend\Authentication\AuthenticationServiceInterface::class)->shouldNotBeCalled();
 
         $factory = new IdentityFactory();
         $plugin = $factory($container->reveal(), Identity::class);
@@ -39,7 +45,9 @@ class IdentityFactoryTest extends TestCase
         $container->has(AuthenticationService::class)->willReturn(true);
         $container->get(AuthenticationService::class)->will([$authentication, 'reveal']);
         $container->has(AuthenticationServiceInterface::class)->willReturn(false);
+        $container->has(\Zend\Authentication\AuthenticationServiceInterface::class)->willReturn(false);
         $container->get(AuthenticationServiceInterface::class)->shouldNotBeCalled();
+        $container->get(\Zend\Authentication\AuthenticationServiceInterface::class)->shouldNotBeCalled();
 
         $factory = new IdentityFactory();
         $plugin = $factory($container->reveal(), Identity::class);
@@ -54,7 +62,10 @@ class IdentityFactoryTest extends TestCase
         $authentication = $this->prophesize(AuthenticationServiceInterface::class);
 
         $container->has(AuthenticationService::class)->willReturn(false);
+
+        $container->has(\Zend\Authentication\AuthenticationService::class)->willReturn(false);
         $container->get(AuthenticationService::class)->shouldNotBeCalled();
+        $container->get(\Zend\Authentication\AuthenticationService::class)->shouldNotBeCalled();
         $container->has(AuthenticationServiceInterface::class)->willReturn(true);
         $container->get(AuthenticationServiceInterface::class)->will([$authentication, 'reveal']);
 
