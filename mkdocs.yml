@@ -1,11 +1,11 @@
 docs_dir: docs/book
 site_dir: docs/html
 nav:
-    - { Home: index.md }
+    - Home: index.md
 site_name: laminas-mvc-plugin-identity
 site_description: 'Plugin for retrieving the current authenticated identity within laminas-mvc controllers'
 repo_url: 'https://github.com/laminas/laminas-mvc-plugin-identity'
 extra:
-    show_special_homepage: true
     project: Mvc
     project_url: 'https://docs.laminas.dev'
+    show_special_homepage: true
