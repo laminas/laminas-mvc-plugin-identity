@@ -1,6 +1,6 @@
 # laminas-mvc-plugin-identity
 
-[![Build Status](https://travis-ci.org/laminas/laminas-mvc-plugin-identity.svg?branch=master)](https://travis-ci.org/laminas/laminas-mvc-plugin-identity)
+[![Build Status](https://travis-ci.com/laminas/laminas-mvc-plugin-identity.svg?branch=master)](https://travis-ci.com/laminas/laminas-mvc-plugin-identity)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-mvc-plugin-identity/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-mvc-plugin-identity?branch=master)
 
 Provides a
