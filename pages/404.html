@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plugin for retrieving the current authenticated identity within laminas-mvc controllers">  
-    <link rel="canonical" href="https://docs.laminas.dev/">
     <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
 
     <title>laminas-mvc-plugin-identity - Laminas Docs</title>
@@ -20,7 +19,7 @@
     <div class="container">
         
         <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
-            <img src="img/laminas-foundation-white.svg" height="28" alt="Laminas">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Laminas">
         </a>
         <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
             Documentation
@@ -113,134 +112,21 @@
         <div class="row">
             <div class="col-md-2 col-sm-12">
                 
-    
-
-    
-    
-
-    
-
-    
-    
-
             </div>
             <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
                 
-                    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        
-            <li class="breadcrumb-item"><a href="">Overview</a></li>
 
-            
-                <li class="breadcrumb-item">laminas-mvc-plugin-identity</li>
-            
-        
-    </ol>
-</nav>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
+<a href="../." class="btn btn-default" role="button">Go to homepage</a>
 
 
-
-
-    <h1>laminas-mvc-plugin-identity</h1>
-<p>Plugin for retrieving the current authenticated identity within laminas-mvc controllers</p>
-
-
-    <h2 id="installation">Installation</h2>
-<p>Install via composer:</p>
-<pre class=codehilite><code class=language-bash>$ composer require laminas/laminas-mvc-plugin-identity</code></pre>
-<p>If you are using the <a href="https://docs.laminas.dev/laminas-component-installer/">laminas-component-installer</a>,
-you're done!</p>
-<p>If not, you will need to add the component as a module to your
-application. Add the entry <code>'Laminas\Mvc\Plugin\Identity'</code> to
-your list of modules in your application configuration (typically
-one of <code>config/application.config.php</code> or <code>config/modules.config.php</code>).</p>
-<h2 id="usage">Usage</h2>
-<p>The <code>Identity</code> plugin allows retrieving the identity from the
-<code>AuthenticationService</code>.</p>
-<p>For the <code>Identity</code> plugin to work, a
-<code>Laminas\Authentication\AuthenticationService</code> or
-<code>Laminas\Authentication\AuthenticationServiceInterface</code> name or
-alias must be defined and recognized by the <code>ServiceManager</code>.</p>
-<p><code>Identity</code> returns the identity in the <code>AuthenticationService</code>
-or <code>null</code> if no identity is available.</p>
-<p>As an example:</p>
-<pre class=codehilite><code class=language-php>public function testAction()
-{
-    if ($user = $this-&gt;identity()) {
-         // someone is logged !
-    } else {
-         // not logged in
-    }
-}</code></pre>
-<p>When invoked, the <code>Identity</code> plugin will look for a service
-by the name or alias <code>Laminas\Authentication\AuthenticationService</code> 
-in the <code>ServiceManager</code>. You can provide this service to the
-<code>ServiceManager</code> in a configuration file:</p>
-<pre class=codehilite><code class=language-php>// In a configuration file...
-use Laminas\Authentication\AuthenticationService;
-
-return [
-    'service_manager' =&gt; [
-        'aliases' =&gt; [
-            AuthenticationService::class =&gt; 'my_auth_service',
-        ],
-        'invokables' =&gt; [
-            'my_auth_service' =&gt; AuthenticationService::class,
-        ],
-    ],
-];</code></pre>
-<p>If such service is not found, the plugin will look for a&nbsp;service
-named <code>Laminas\Authentication\AuthenticationServiceInterface</code> in
-the <code>ServiceManager</code>. For example:</p>
-<pre class=codehilite><code class=language-php>use Laminas\Authentication\AuthenticationServiceInterface;
-
-return [
-    'service_manager' =&gt; [
-        'factories' =&gt; [
-            AuthenticationServiceInterface::class =&gt; MyAuthenticationServiceFactory::class,
-        ],
-    ],
-];</code></pre>
-<p>The <code>Identity</code> plugin exposes two methods:</p>
-<ul>
-<li>
-<p><code>setAuthenticationService(AuthenticationServiceInterface $authenticationService) : void</code>:
-  Sets the authentication service instance to be used by the plugin.</p>
-</li>
-<li>
-<p><code>getAuthenticationService() : AuthenticationServiceInterface</code>:
-  Retrieves the current authentication service instance if any is attached.</p>
-</li>
-</ul>
-
-    
-
-
-<h2>Support</h2>
-<ul>
-    <li>Issues: <a href="https://github.com/laminas/laminas-mvc-plugin-identity/issues">github.com/laminas/laminas-mvc-plugin-identity/issues</a></li>
-    <li>Source: <a href="https://github.com/laminas/laminas-mvc-plugin-identity/">github.com/laminas/laminas-mvc-plugin-identity/</a></li>
-    <li>Chat: <a href="https://laminas.dev/chat">laminas.dev/chat</a></li>
-    <li>Forum: <a href="https://discourse.laminas.dev/">discourse.laminas.dev</a></li>
-</ul>
-
-
-
-
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-mvc-plugin-identity/edit/master/docs/book/index.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             </div>
             <div class="col-md-3 col-sm-12 sidebar">
                 
@@ -331,12 +217,12 @@ return [
 </footer>
 
     <script>
-        let base_url = '.',
+        let base_url = '..',
             project  = "mvc",
             siteName = 'laminas-mvc-plugin-identity';
     </script>
     <script src="/js/scripts.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
@@ -364,8 +250,3 @@ return [
 
 
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-01-08 12:30:05
--->
