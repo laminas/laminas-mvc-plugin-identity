@@ -6,5 +6,5 @@ site_name: laminas-mvc-plugin-identity
 site_description: 'Plugin for retrieving the current authenticated identity within laminas-mvc controllers'
 repo_url: 'https://github.com/laminas/laminas-mvc-plugin-identity'
 extra:
-    project: Mvc
+    project: MVC
     show_special_homepage: true
