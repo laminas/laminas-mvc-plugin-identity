@@ -207,7 +207,8 @@
 
     <h2 id="installation">Installation</h2>
 <p>Install via composer:</p>
-<pre class=codehilite><code class=language-bash>$ composer require laminas/laminas-mvc-plugin-identity</code></pre>
+<pre class="highlight"><code class="language-bash">$ composer require laminas/laminas-mvc-plugin-identity</code></pre>
+
 <p>If you are using the <a href="https://docs.laminas.dev/laminas-component-installer/">laminas-component-installer</a>,
 you're done!</p>
 <p>If not, you will need to add the component as a module to your
@@ -224,7 +225,7 @@ alias must be defined and recognized by the <code>ServiceManager</code>.</p>
 <p><code>Identity</code> returns the identity in the <code>AuthenticationService</code>
 or <code>null</code> if no identity is available.</p>
 <p>As an example:</p>
-<pre class=codehilite><code class=language-php>public function testAction()
+<pre class="highlight"><code class="language-php">public function testAction()
 {
     if ($user = $this-&gt;identity()) {
          // someone is logged !
@@ -232,11 +233,12 @@ or <code>null</code> if no identity is available.</p>
          // not logged in
     }
 }</code></pre>
+
 <p>When invoked, the <code>Identity</code> plugin will look for a service
 by the name or alias <code>Laminas\Authentication\AuthenticationService</code> 
 in the <code>ServiceManager</code>. You can provide this service to the
 <code>ServiceManager</code> in a configuration file:</p>
-<pre class=codehilite><code class=language-php>// In a configuration file...
+<pre class="highlight"><code class="language-php">// In a configuration file...
 use Laminas\Authentication\AuthenticationService;
 
 return [
@@ -249,10 +251,11 @@ return [
         ],
     ],
 ];</code></pre>
+
 <p>If such service is not found, the plugin will look for a&nbsp;service
 named <code>Laminas\Authentication\AuthenticationServiceInterface</code> in
 the <code>ServiceManager</code>. For example:</p>
-<pre class=codehilite><code class=language-php>use Laminas\Authentication\AuthenticationServiceInterface;
+<pre class="highlight"><code class="language-php">use Laminas\Authentication\AuthenticationServiceInterface;
 
 return [
     'service_manager' =&gt; [
@@ -261,6 +264,7 @@ return [
         ],
     ],
 ];</code></pre>
+
 <p>The <code>Identity</code> plugin exposes two methods:</p>
 <ul>
 <li>
@@ -432,5 +436,5 @@ return [
 
 <!--
 MkDocs version : 1.1
-Build Date UTC : 2020-03-29 11:26:38
+Build Date UTC : 2020-04-03 18:18:23
 -->
