@@ -14,9 +14,12 @@ use Laminas\Authentication\AuthenticationServiceInterface;
 use Laminas\Mvc\Plugin\Identity\Identity;
 use Laminas\Mvc\Plugin\Identity\IdentityFactory;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class IdentityFactoryTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testFactoryReturnsEmptyIdentityIfNoAuthenticationServicePresent()
     {
         $container = $this->prophesize(ContainerInterface::class);
