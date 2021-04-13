@@ -148,7 +148,7 @@
             </div>
 
             
-            <div class="col-4 text-sm-right">
+            <div class="col-4 text-right">
                 
                     
 
@@ -208,7 +208,6 @@
     <h2 id="installation">Installation</h2>
 <p>Install via composer:</p>
 <pre class="highlight"><code class="language-bash">$ composer require laminas/laminas-mvc-plugin-identity</code></pre>
-
 <p>If you are using the <a href="https://docs.laminas.dev/laminas-component-installer/">laminas-component-installer</a>,
 you're done!</p>
 <p>If not, you will need to add the component as a module to your
@@ -233,7 +232,6 @@ or <code>null</code> if no identity is available.</p>
          // not logged in
     }
 }</code></pre>
-
 <p>When invoked, the <code>Identity</code> plugin will look for a service
 by the name or alias <code>Laminas\Authentication\AuthenticationService</code> 
 in the <code>ServiceManager</code>. You can provide this service to the
@@ -251,7 +249,6 @@ return [
         ],
     ],
 ];</code></pre>
-
 <p>If such service is not found, the plugin will look for a&nbsp;service
 named <code>Laminas\Authentication\AuthenticationServiceInterface</code> in
 the <code>ServiceManager</code>. For example:</p>
@@ -264,7 +261,6 @@ return [
         ],
     ],
 ];</code></pre>
-
 <p>The <code>Identity</code> plugin exposes two methods:</p>
 <ul>
 <li>
@@ -323,6 +319,7 @@ return [
         <optgroup label="Components"></optgroup>
     </select>
 </div>
+                    
                     
                 
             </div>
@@ -396,7 +393,7 @@ return [
                         <p>
                             <!--Built with love by the Laminas team with the help of our
                             <a href="https://github.com/laminas/laminas-mvc-plugin-identity/graphs/contributors">contributors</a>.<br>-->
-                            &copy; 2020 <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
+                            &copy; 2021 <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
                         </p>
                     </div>
                 </div>
@@ -444,5 +441,5 @@ return [
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-05-27 07:49:08.954233+00:00
+Build Date UTC : 2021-04-13 20:30:59.139160+00:00
 -->
