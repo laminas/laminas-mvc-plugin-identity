@@ -1,7 +1,6 @@
 # laminas-mvc-plugin-identity
 
-[![Build Status](https://travis-ci.com/laminas/laminas-mvc-plugin-identity.svg?branch=master)](https://travis-ci.com/laminas/laminas-mvc-plugin-identity)
-[![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-mvc-plugin-identity/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-mvc-plugin-identity?branch=master)
+[![Build Status](https://github.com/laminas/laminas-mvc-plugin-identity/workflows/Continuous%20Integration/badge.svg)](https://github.com/laminas/laminas-mvc-plugin-identity/actions?query=workflow%3A"Continuous+Integration")
 
 Provides a
 [laminas-mvc](https://docs.laminas.dev/laminas-mvc/) plugin (for versions 3.0
