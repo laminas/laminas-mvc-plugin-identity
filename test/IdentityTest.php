@@ -1,10 +1,6 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
- * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace LaminasTest\Mvc\Plugin\Identity;
 
@@ -15,28 +11,30 @@ use PHPUnit\Framework\TestCase;
 
 class IdentityTest extends TestCase
 {
-    public function testGetIdentity()
+    public function testGetIdentity(): void
     {
         $identity = new TestAsset\IdentityObject();
         $identity->setUsername('a username');
         $identity->setPassword('a password');
 
         $authenticationService = new AuthenticationService(
-            new NonPersistentStorage,
-            new TestAsset\AuthenticationAdapter
+            new NonPersistentStorage(),
+            new TestAsset\AuthenticationAdapter()
         );
 
-        $identityPlugin = new IdentityPlugin;
+        $identityPlugin = new IdentityPlugin();
         $identityPlugin->setAuthenticationService($authenticationService);
 
-        $this->assertNull($identityPlugin());
+        self::assertNull($identityPlugin());
 
-        $this->assertFalse($authenticationService->hasIdentity());
+        self::assertFalse($authenticationService->hasIdentity());
 
-        $authenticationService->getAdapter()->setIdentity($identity);
+        $adapter = $authenticationService->getAdapter();
+        self::assertNotNull($adapter);
+        $adapter->setIdentity($identity);
         $result = $authenticationService->authenticate();
-        $this->assertTrue($result->isValid());
+        self::assertTrue($result->isValid());
 
-        $this->assertEquals($identity, $identityPlugin());
+        self::assertEquals($identity, $identityPlugin());
     }
 }
