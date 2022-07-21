@@ -4,9 +4,6 @@
     <DeprecatedInterface occurrences="1">
       <code>IdentityFactory</code>
     </DeprecatedInterface>
-    <ParamNameMismatch occurrences="1">
-      <code>$container</code>
-    </ParamNameMismatch>
   </file>
   <file src="test/IdentityTest.php">
     <UndefinedInterfaceMethod occurrences="1">

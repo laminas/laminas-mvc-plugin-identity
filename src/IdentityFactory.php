@@ -17,10 +17,10 @@ class IdentityFactory implements FactoryInterface
     /**
      * {@inheritDoc}
      *
-     * @param string|null $name
+     * @param string|null $requestedName
      * @return Identity
      */
-    public function __invoke(ContainerInterface $container, $name, ?array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $plugin = new Identity();
 
@@ -42,8 +42,8 @@ class IdentityFactory implements FactoryInterface
      *
      * @return Identity
      */
-    public function createService(ServiceLocatorInterface $container)
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return $this($container, Identity::class);
+        return $this($serviceLocator, Identity::class);
     }
 }
