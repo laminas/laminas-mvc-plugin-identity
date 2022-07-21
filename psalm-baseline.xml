@@ -5,9 +5,4 @@
       <code>IdentityFactory</code>
     </DeprecatedInterface>
   </file>
-  <file src="test/IdentityTest.php">
-    <UndefinedInterfaceMethod occurrences="1">
-      <code>setIdentity</code>
-    </UndefinedInterfaceMethod>
-  </file>
 </files>

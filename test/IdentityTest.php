@@ -17,9 +17,10 @@ class IdentityTest extends TestCase
         $identity->setUsername('a username');
         $identity->setPassword('a password');
 
+        $testAdapter           = new TestAsset\AuthenticationAdapter();
         $authenticationService = new AuthenticationService(
             new NonPersistentStorage(),
-            new TestAsset\AuthenticationAdapter()
+            $testAdapter
         );
 
         $identityPlugin = new IdentityPlugin();
@@ -30,7 +31,7 @@ class IdentityTest extends TestCase
         self::assertFalse($authenticationService->hasIdentity());
 
         $adapter = $authenticationService->getAdapter();
-        self::assertNotNull($adapter);
+        self::assertSame($testAdapter, $adapter);
         $adapter->setIdentity($identity);
         $result = $authenticationService->authenticate();
         self::assertTrue($result->isValid());
