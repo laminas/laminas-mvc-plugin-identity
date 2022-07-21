@@ -1,10 +1,6 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
- * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace LaminasTest\Mvc\Plugin\Identity\TestAsset;
 
@@ -13,14 +9,16 @@ use Laminas\Authentication\Result;
 
 class AuthenticationAdapter implements AdapterInterface
 {
+    /** @var mixed */
     protected $identity;
 
-    public function setIdentity($identity)
+    /** @param mixed $identity */
+    public function setIdentity($identity): void
     {
         $this->identity = $identity;
     }
 
-    public function authenticate()
+    public function authenticate(): Result
     {
         return new Result(Result::SUCCESS, $this->identity);
     }

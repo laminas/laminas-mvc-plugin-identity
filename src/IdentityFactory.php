@@ -1,12 +1,10 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
- * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace Laminas\Mvc\Plugin\Identity;
+
+// phpcs:disable WebimpressCodingStandard.PHP.CorrectClassNameCase
 
 use Interop\Container\ContainerInterface;
 use Laminas\Authentication\AuthenticationService;
@@ -19,9 +17,10 @@ class IdentityFactory implements FactoryInterface
     /**
      * {@inheritDoc}
      *
+     * @param string|null $requestedName
      * @return Identity
      */
-    public function __invoke(ContainerInterface $container, $name, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $plugin = new Identity();
 
@@ -39,11 +38,12 @@ class IdentityFactory implements FactoryInterface
      *
      * For use with laminas-servicemanager v2; proxies to __invoke().
      *
-     * @param ServiceLocatorInterface $container
+     * @deprecated Since 1.4.0 - Service Manager v2 is no longer installable
+     *
      * @return Identity
      */
-    public function createService(ServiceLocatorInterface $container)
+    public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return $this($container, Identity::class);
+        return $this($serviceLocator, Identity::class);
     }
 }

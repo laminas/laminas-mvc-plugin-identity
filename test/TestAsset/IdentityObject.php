@@ -1,53 +1,33 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
- * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace LaminasTest\Mvc\Plugin\Identity\TestAsset;
 
 class IdentityObject
 {
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     protected $username;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     protected $password;
 
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
+    public function setPassword(string $password): void
     {
-        $this->password = (string) $password;
+        $this->password = $password;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username)
+    public function setUsername(string $username): void
     {
-        $this->username = (string) $username;
+        $this->username = $username;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getUsername()
+    public function getUsername(): ?string
     {
         return $this->username;
     }

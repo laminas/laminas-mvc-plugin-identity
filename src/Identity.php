@@ -1,10 +1,6 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-mvc-plugin-identity for the canonical source repository
- * @copyright https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-mvc-plugin-identity/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace Laminas\Mvc\Plugin\Identity;
 
@@ -13,25 +9,23 @@ use Laminas\Mvc\Controller\Plugin\AbstractPlugin;
 
 /**
  * Controller plugin to fetch the authenticated identity.
+ *
+ * @final This class is not intended to be open for extension.
  */
 class Identity extends AbstractPlugin
 {
-    /**
-     * @var AuthenticationServiceInterface
-     */
+    /** @var AuthenticationServiceInterface|null */
     protected $authenticationService;
 
     /**
-     * @return AuthenticationServiceInterface
+     * @return AuthenticationServiceInterface|null
      */
     public function getAuthenticationService()
     {
         return $this->authenticationService;
     }
 
-    /**
-     * @param AuthenticationServiceInterface $authenticationService
-     */
+    /** @return void */
     public function setAuthenticationService(AuthenticationServiceInterface $authenticationService)
     {
         $this->authenticationService = $authenticationService;
@@ -54,7 +48,7 @@ class Identity extends AbstractPlugin
         }
 
         if (! $this->authenticationService->hasIdentity()) {
-            return;
+            return null;
         }
 
         return $this->authenticationService->getIdentity();
