@@ -1,4 +1,4 @@
-## Installation
+# Installation
 
 Install via composer:
 
@@ -40,10 +40,8 @@ public function testAction()
 }
 ```
 
-When invoked, the `Identity` plugin will look for a service
-by the name or alias `Laminas\Authentication\AuthenticationService` 
-in the `ServiceManager`. You can provide this service to the
-`ServiceManager` in a configuration file:
+When invoked, the `Identity` plugin will look for a service by the name or alias `Laminas\Authentication\AuthenticationService` in the `ServiceManager`.
+You can provide this service to the `ServiceManager` in a configuration file:
 
 ```php
 // In a configuration file...
