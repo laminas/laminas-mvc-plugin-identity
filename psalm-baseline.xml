@@ -4,10 +4,6 @@
     <DeprecatedInterface occurrences="1">
       <code>IdentityFactory</code>
     </DeprecatedInterface>
-    <MixedArgument occurrences="2">
-      <code>$container-&gt;get(AuthenticationService::class)</code>
-      <code>$container-&gt;get(AuthenticationServiceInterface::class)</code>
-    </MixedArgument>
     <ParamNameMismatch occurrences="1">
       <code>$container</code>
     </ParamNameMismatch>
