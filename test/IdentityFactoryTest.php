@@ -12,27 +12,25 @@ use Laminas\Authentication\AuthenticationServiceInterface;
 use Laminas\Mvc\Plugin\Identity\Identity;
 use Laminas\Mvc\Plugin\Identity\IdentityFactory;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 
 class IdentityFactoryTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testFactoryReturnsEmptyIdentityIfNoAuthenticationServicePresent(): void
     {
-        $container = $this->prophesize(ContainerInterface::class);
-        $container->has(AuthenticationService::class)->willReturn(false);
+        $container = $this->createMock(ContainerInterface::class);
 
-        $container->has('Zend\Authentication\AuthenticationService')->willReturn(false);
-        $container->get(AuthenticationService::class)->shouldNotBeCalled();
-        $container->get('Zend\Authentication\AuthenticationService')->shouldNotBeCalled();
-        $container->has(AuthenticationServiceInterface::class)->willReturn(false);
-        $container->has('Zend\Authentication\AuthenticationServiceInterface')->willReturn(false);
-        $container->get(AuthenticationServiceInterface::class)->shouldNotBeCalled();
-        $container->get('Zend\Authentication\AuthenticationServiceInterface')->shouldNotBeCalled();
+        $container->expects(self::exactly(2))->method('has')->withConsecutive(
+            [AuthenticationService::class],
+            [AuthenticationServiceInterface::class]
+        )->willReturnOnConsecutiveCalls(
+            false,
+            false,
+        );
+
+        $container->expects(self::never())->method('get');
 
         $factory = new IdentityFactory();
-        $plugin  = $factory($container->reveal(), Identity::class);
+        $plugin  = $factory($container, Identity::class);
 
         $this->assertInstanceOf(Identity::class, $plugin);
         $this->assertNull($plugin->getAuthenticationService());
@@ -40,40 +38,47 @@ class IdentityFactoryTest extends TestCase
 
     public function testFactoryReturnsIdentityWithConfiguredAuthenticationServiceWhenPresent(): void
     {
-        $container      = $this->prophesize(ContainerInterface::class);
-        $authentication = $this->prophesize(AuthenticationService::class);
+        $container      = $this->createMock(ContainerInterface::class);
+        $authentication = $this->createMock(AuthenticationService::class);
 
-        $container->has(AuthenticationService::class)->willReturn(true);
-        $container->get(AuthenticationService::class)->will([$authentication, 'reveal']);
-        $container->has(AuthenticationServiceInterface::class)->willReturn(false);
-        $container->has('Zend\Authentication\AuthenticationServiceInterface')->willReturn(false);
-        $container->get(AuthenticationServiceInterface::class)->shouldNotBeCalled();
-        $container->get('Zend\Authentication\AuthenticationServiceInterface')->shouldNotBeCalled();
+        $container->expects(self::once())
+            ->method('has')
+            ->with(AuthenticationService::class)
+            ->willReturn(true);
+        $container->expects(self::once())
+            ->method('get')
+            ->with(AuthenticationService::class)
+            ->willReturn($authentication);
 
         $factory = new IdentityFactory();
-        $plugin  = $factory($container->reveal(), Identity::class);
+        $plugin  = $factory($container, Identity::class);
 
         $this->assertInstanceOf(Identity::class, $plugin);
-        $this->assertSame($authentication->reveal(), $plugin->getAuthenticationService());
+        $this->assertSame($authentication, $plugin->getAuthenticationService());
     }
 
     public function testFactoryReturnsIdentityWithConfiguredAuthenticationServiceInterfaceWhenPresent(): void
     {
-        $container      = $this->prophesize(ContainerInterface::class);
-        $authentication = $this->prophesize(AuthenticationServiceInterface::class);
+        $container      = $this->createMock(ContainerInterface::class);
+        $authentication = $this->createMock(AuthenticationServiceInterface::class);
 
-        $container->has(AuthenticationService::class)->willReturn(false);
+        $container->expects(self::exactly(2))->method('has')->withConsecutive(
+            [AuthenticationService::class],
+            [AuthenticationServiceInterface::class]
+        )->willReturnOnConsecutiveCalls(
+            false,
+            true,
+        );
 
-        $container->has('Zend\Authentication\AuthenticationService')->willReturn(false);
-        $container->get(AuthenticationService::class)->shouldNotBeCalled();
-        $container->get('Zend\Authentication\AuthenticationService')->shouldNotBeCalled();
-        $container->has(AuthenticationServiceInterface::class)->willReturn(true);
-        $container->get(AuthenticationServiceInterface::class)->will([$authentication, 'reveal']);
+        $container->expects(self::once())
+            ->method('get')
+            ->with(AuthenticationServiceInterface::class)
+            ->willReturn($authentication);
 
         $factory = new IdentityFactory();
-        $plugin  = $factory($container->reveal(), Identity::class);
+        $plugin  = $factory($container, Identity::class);
 
         $this->assertInstanceOf(Identity::class, $plugin);
-        $this->assertSame($authentication->reveal(), $plugin->getAuthenticationService());
+        $this->assertSame($authentication, $plugin->getAuthenticationService());
     }
 }
