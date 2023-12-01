@@ -10,12 +10,6 @@
       <code>Module</code>
     </UnusedClass>
   </file>
-  <file src="test/IdentityFactoryTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
-  </file>
   <file src="test/TestAsset/IdentityObject.php">
     <PossiblyUnusedMethod>
       <code>getPassword</code>
