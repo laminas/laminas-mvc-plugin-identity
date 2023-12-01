@@ -1,6 +1,8 @@
 # laminas-mvc-plugin-identity
 
-[![Build Status](https://github.com/laminas/laminas-mvc-plugin-identity/workflows/Continuous%20Integration/badge.svg)](https://github.com/laminas/laminas-mvc-plugin-identity/actions?query=workflow%3A"Continuous+Integration")
+[![Build Status](https://github.com/laminas/laminas-mvc-plugin-identity/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/laminas/laminas-mvc-plugin-identity/actions/workflows/continuous-integration.yml)
+[![type-coverage](https://shepherd.dev/github/laminas/laminas-mvc-plugin-identity/coverage.svg)](https://shepherd.dev/github/laminas/laminas-mvc-plugin-identity)
+[![Psalm level](https://shepherd.dev/github/laminas/laminas-mvc-plugin-identity/level.svg)](https://shepherd.dev/github/laminas/laminas-mvc-plugin-identity)
 
 > ## 🇷🇺 Русским гражданам
 >
