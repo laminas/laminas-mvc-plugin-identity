@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="src/IdentityFactory.php">
-    <DeprecatedInterface occurrences="1">
+    <DeprecatedInterface>
       <code>IdentityFactory</code>
     </DeprecatedInterface>
+  </file>
+  <file src="src/Module.php">
+    <UnusedClass>
+      <code>Module</code>
+    </UnusedClass>
+  </file>
+  <file src="test/IdentityFactoryTest.php">
+    <DeprecatedMethod>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/TestAsset/IdentityObject.php">
+    <PossiblyUnusedMethod>
+      <code>getPassword</code>
+      <code>getUsername</code>
+    </PossiblyUnusedMethod>
   </file>
 </files>

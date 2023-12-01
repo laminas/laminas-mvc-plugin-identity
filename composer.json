@@ -39,7 +39,7 @@
         "laminas/laminas-coding-standard": "~2.5.0",
         "phpunit/phpunit": "^9.5.26",
         "psalm/plugin-phpunit": "^0.18.0",
-        "vimeo/psalm": "^5.0"
+        "vimeo/psalm": "^5.16"
     },
     "conflict": {
         "laminas/laminas-mvc": "<3.0.0",
@@ -62,8 +62,8 @@
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
+        "static-analysis": "psalm --shepherd --stats",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
-        "static-analysis": "psalm --shepard --stats"
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     }
 }
