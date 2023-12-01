@@ -19,13 +19,12 @@ class IdentityFactoryTest extends TestCase
     {
         $container = $this->createMock(ContainerInterface::class);
 
-        $container->expects(self::exactly(2))->method('has')->withConsecutive(
-            [AuthenticationService::class],
-            [AuthenticationServiceInterface::class]
-        )->willReturnOnConsecutiveCalls(
-            false,
-            false,
-        );
+        $container->expects(self::exactly(2))
+            ->method('has')
+            ->willReturnMap([
+                [AuthenticationService::class, false],
+                [AuthenticationServiceInterface::class, false],
+            ]);
 
         $container->expects(self::never())->method('get');
 
@@ -62,13 +61,12 @@ class IdentityFactoryTest extends TestCase
         $container      = $this->createMock(ContainerInterface::class);
         $authentication = $this->createMock(AuthenticationServiceInterface::class);
 
-        $container->expects(self::exactly(2))->method('has')->withConsecutive(
-            [AuthenticationService::class],
-            [AuthenticationServiceInterface::class]
-        )->willReturnOnConsecutiveCalls(
-            false,
-            true,
-        );
+        $container->expects(self::exactly(2))
+            ->method('has')
+            ->willReturnMap([
+                [AuthenticationService::class, false],
+                [AuthenticationServiceInterface::class, true],
+            ]);
 
         $container->expects(self::once())
             ->method('get')
